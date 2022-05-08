@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+body{
+
+    margin: 0;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+#meu_video{
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+}
+
+.container_entrar{
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-left: 4%;
+}
+
+.box_entrar{
+    padding: 1%;
+    width: 35%;
+    height: 35%;
+    border-radius: 5%;
+    box-shadow: #7952B3 0px -50px 36px -28px inset;
+    background-color: #252525e0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #eee;
+    font-size: 26px;
+    font-weight: 700;
+    animation: go-back 8s  alternate ;
+    /* animation: bounce 5s infinite alternate;
+    -webkit-animation: bounce 5s infinite alternate; */
+}
+
+
+@keyframes go-back {
+    from {
+      transform: translateX(150%);
+    }
+    to {
+      transform: translateX(0%);
+      transition: 2s;
+    }
+  }
+  .box_entrar_btn {
+    --color: #FFC107;
+    position: relative;
+    z-index: 1;
+   }
+   
+   .box_entrar_btn::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    top: -7px;
+    left: -7px;
+    z-index: -5;
+    border-top: 3px solid var(--color);
+    border-left: 3px solid var(--color);
+    transition: 0.5s;
+   }
+   
+   .box_entrar_btn::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    bottom: -7px;
+    right: -7px;
+    z-index: -5;
+    border-right: 3px solid var(--color);
+    border-bottom: 3px solid var(--color);
+    transition: 0.5s;
+   }
+   
+   .box_entrar_btn:hover::before {
+    width: 100%;
+    height: 100%;
+   }
+   
+   .box_entrar_btn:hover::after {
+    width: 100%;
+    height: 100%;
+   }
+   
+   .box_entrar_btn button {
+    padding: 0.7em 2em;
+    font-size: 16px;
+    font-weight: bold;
+    background: #252525e0;
+    color: #eee;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+   }
+
+   audio{
+       margin-left: 77.5%;
+       width: 15%;
+   }
