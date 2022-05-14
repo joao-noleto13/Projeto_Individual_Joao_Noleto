@@ -10,20 +10,24 @@ body{
 
 .container {
     width: 80%;
-    height: 20vh;
+    height: 15vh;
     margin: auto;
     display: flex;
-  
+  z-index: 999;
   }
 
 .header {
-    border-bottom: 3px solid #252525;
+    border-bottom: 3px solid #7952b3c5;
     background-color: #E1E8EB;
     color: #252525;
+    position: fixed;
+    width: 100%;
+    height: 15vh;
   }
   
   .header .container {
     justify-content: space-between;
+   
   }
   
   .header a {
@@ -31,6 +35,12 @@ body{
     color: #252525;
   }
   
+  .header h1 {
+    text-decoration: none;
+    color: #252525;
+    font-size: 26px;
+  }
+
   .agora {
     font-weight: 400;
     color: #7952B3;
@@ -72,35 +82,57 @@ body{
   }
 
   .logo img{
-      width: 100%;
+      width: 85%;
+  }
+
+
+  /*primeira tela*/
+
+  #primeira_tela{
+    width: 100%;
+    height: 100vh;
+
   }
 
   .container_tela{
       width: 100vw;
-      height: 100vh;
+      height: 110vh;
       display: flex;
       justify-content: space-around;
+      border-bottom: #252525 2px outset;
       align-items: center;
   }
 
   .box_texto_inicio{
-      width: 47%;
+      width: 50%;
       height: 100vh;
       display: flex;
       float: left;
-      margin-top: 10%;
       justify-content: center;
+
   }
 
   .box_texto_inicio span{
-    width: 65%;
+    width: 75%;
+    height: 100vh;
     color: #eee;
-    font-size: 20px;
+    font-size: 28px;
    
   }
 
+  .texto_inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 45%;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3);
+  }
+
+  
+
   .box_img_inicio{
-    width: 47%;
+    width: 50%;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -110,7 +142,115 @@ body{
   }
 
   .box_img_inicio img{
-      width: 100%;
-      margin-bottom: 30%;
-      margin-right: 15%;
+    margin-top: 15%;
+    height: 75%;
+    border-radius:  2%;
+    transition: all .4s ease;
+    box-shadow: 12px 12px rgba(218, 218, 218, 0.671);
+   
+
   }
+
+  .box_img_inicio img:hover {
+    border-radius: 50% 50% 30% 30%  / 5% 5% 0% 0%   ;
+    box-shadow: 10px 10px rgba(0,0,0,.25),
+     rgb(0, 0, 0) 0px 0px 15px 0px inset;
+    height: 80%;
+    }
+
+
+  
+
+/*   Segunda parte, conheça    */
+
+  #container_tela_conheca{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    display: flex;
+  }
+
+
+  .cinza{
+    width: 20%;
+    height: 80vh;
+    background-color: #343A40;
+    background-color: #252525;
+    margin-left: -5%;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: 20px 20px rgba(104, 104, 104, 0.671);
+    transition: all .4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .btn_login{
+    width: 60%;
+    margin-left: 20%;
+    height: 5%;
+    cursor: pointer;
+    border-radius: 5%;
+    border: 0.5px outset #ffffff;
+    background-color: #7952b3c5;
+    color: #E1E8EB;
+    font-size: 12px;
+    transition: 0.3s all ease-in;
+  }
+
+  .btn_login:hover{
+    width: 55%;
+    height: 6%;
+    border-radius: 10%;
+    transition: 0.3s all ease-in;
+    background-color: #7952b37e;
+  }
+
+  .btn_cadastro{
+    width: 60%;
+    margin-left: 20%;
+    height: 5%;
+    cursor: pointer;
+    border-radius: 5%;
+    border: 0.5px outset #ffffff;
+    background-color: #7952b3c5;
+    color: #E1E8EB;
+    font-size: 12px;
+    transition: 0.3s all ease-in;
+  }
+
+  .btn_cadastro:hover{
+    width: 55%;
+    height: 6%;
+    border-radius: 10%;
+    transition: 0.3s all ease-in;
+    background-color: #7952b37e;
+  }
+
+   
+
+  .cinza:hover {
+    border-radius: 50% 50% 30% 30%  / 5% 5% 0% 0%  ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+    
+  }
+
+  .roxo {
+    width: 70%;
+    height: 60vh;
+    background: #7952B3;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: 20px 20px rgba(104, 104, 104, 0.671);
+    transition: all .4s ease;
+    margin-left: 8.5%;
+  }
+  .roxo:hover {
+    border-radius: 50% 50% 30% 30%  / 5% 5% 0% 0%   ;
+    box-shadow: 10px 10px rgba(0,0,0,.25),
+     rgb(0, 0, 0) 0px 0px 15px 0px inset;
+  }
+  
