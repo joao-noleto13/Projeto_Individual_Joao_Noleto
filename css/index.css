@@ -295,7 +295,7 @@ body{
      rgb(0, 0, 0) 0px 0px 15px 0px inset;
   }
   
-  .div_roxo{
+  .div_imgs{
     height: 50%;
     width: 100%;
     display: flex;
@@ -303,10 +303,20 @@ body{
     align-items: center;
   }
 
-  .div_roxo img{
+  .div_imgs img{
     width: 15%;
   }
 
-  .desc_img_player{
-    width: 15%;
+  .div_desc_imgs{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .span_img_player{
+    width: 25%;
+    font-size : 16px;
   }
