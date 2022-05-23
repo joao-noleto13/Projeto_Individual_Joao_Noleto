@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+
+body{
+    margin: 0;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #343A40;
+    
+}
+
+::-webkit-scrollbar {
+  width:12px;
+  height: 10px;
+  }
+   
+  /* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+  ::-webkit-scrollbar-track {
+  background:#333;
+  }
+   
+  /* aqui é a alça da barra, que demonstra a altura que você está na página
+  estou colocando uma cor azul clara nela*/
+  ::-webkit-scrollbar-thumb {
+  background: #7952B3;
+  }
+
+
+.container {
+    width: 80%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+  z-index: 999;
+  }
+
+.header {
+    border-bottom: 3px solid #7952b3c5;
+    background-color: #E1E8EB;
+    color: #252525;
+    position: fixed;
+    width: 100%;
+    height: 15vh;
+  }
+  
+  .header .container {
+    justify-content: space-between;
+   
+  }
+  
+
+  .header li{
+    transition: 0.5s;
+  }
+
+  .header li:hover { 
+    transform: scale(1.09);
+    font-weight: bold;
+    color: #7952B3;
+    transition: 1s;
+  }
+  
+
+
+  .header a{
+    text-decoration: none;
+    color: #252525;
+    transition: 0.5s;
+  }
+
+  .header a:hover { 
+    transform: scale(1);
+    font-weight: bold;
+    color: #7952B3;
+    transition: 1s;
+  }
+  
+  .header h1 {
+    text-decoration: none;
+    color: #252525;
+    font-size: 26px;
+  }
+
+  .agora {
+    font-weight: 400;
+    color: #7952B3;
+    background-color: #7952b342;
+    width: 15%;
+    height: 60%;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar {
+    width: 37vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #252525;
+    font-size: 18px;
+    
+  }
+
+  .navbar li{
+    margin-left: 5%;
+    
+  }
+  
+ 
+  
+  .logo{
+      width: 20vw;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: -18%;
+  }
+
+  .logo img{
+      width: 85%;
+  }
+
+
+  .sec_cadastro {
+    height: 100vh ;
+    width: 100%;
+    background-color: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .div_form {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    flex-direction: column;
+  }
+
+ 
+
+  .form{
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 100%;
+    border-radius: 2%;
+    margin-top: 12%;
+    margin-left: -5%;
+    padding: 5px, 5px, 5px, 5px;
+    box-shadow: rgba(121, 82, 179, 0.726) 0px 5px 15px 0px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  label { 
+    font-size: 18px;
+    color: #E1E8EB;
+    align-self: flex-start;
+    margin-left: 11%;
+    margin-top: 2vh;
+  }
+
+  
+ input{
+    height: 7%;
+    width: 75%;
+    padding: 0 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    outline: 0;
+    transition: .2s;
+  }
+
+  button{
+    padding: 12px 10px;
+    border: 0;
+    width: 35%;
+    background: linear-gradient(to right, #fcf954 0%,#a61ae7 100%); 
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 1s;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    position: absolute;
+    margin-top: 25%;
+  }
+
+  button:hover{
+    background-color: #ffc400a1;
+    transform: scale(1.08)
+  }
+  
+  #titulo{
+    width: 100%;
+    font-size: 30px;
+    color: #E1E8EB;
+    font-weight: 700;
+    margin-left: 41.2%;
+  }
+  
+  .pt_1{
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    height: 100%;
+    float: left;
+    align-items: center;
+    margin-top: 10%;
+  } 
+ 
+  .pt_2{
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    height: 100%;
+    align-items: center;
+    margin-top: 10%;
+  }
+  .div_titulo{
+    position: absolute;
+    margin-bottom: 27%;
+    margin-left: -2%;
+    width: 60%;
+ 
+  }
+
+  .divisao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1%;
+    margin-left: 2%;
+    height: 50%;
+    border-left: #7952B3 2px outset;
+  }
+  /* .img_fundo{
+
+    width: 65%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -1%;
+  }
+ */
+  /* .img{
+    border-radius: 4px;
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    margin-top: 11%;
+    width: 95%;
+    height: 80%;
+    background-color: #252525;
+    background-image: url("../imgs/crias.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  } */

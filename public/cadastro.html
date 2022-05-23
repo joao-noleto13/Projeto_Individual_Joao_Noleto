@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro </title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class=" logo"> <img src="./imgs/My project.png" >
+            </div>
+            <h1 class="titulo">Hoopers</h1>
+            <ul class="navbar">
+                <li >
+                    <a  href="index.html" onclick="agora()">Inicio</a>
+                </li>
+                <li>
+                    <a  href="#container_tela_conheca" onclick="agora()">O que somos ?</a>
+                </li>
+                <li>
+                    <a href="login.html" onclick="agora()">Login</a>
+                </li>
+                <li class="agora" >
+                    <a href="" onclick="agora()">Cadastro</a>
+                </li>
+                <li>
+                    <a href="../html/cadastro.html" onclick="agora()">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="sec_cadastro">
+        <div class="div_form">
+            
+            <form class="form">
+                <div class="div_titulo">
+                <span id="titulo">Cadastre-se</span>
+            </div>
+            
+            <div class="pt_1">
+                
+                    <label  for="input_nome">Nome Usuário:</label>
+                    <input type="text" id="input_nome" placeholder="Digite seu nome">
+               
+                
+                    <label for="input_email">Email:</label>
+                    <input type="text" id="input_email" placeholder="Digite seu email">
+               
+                
+                    <label for="input_senha">Senha:</label>
+                    <input type="text" id="input_senha" placeholder="Digite sua senha">
+                   
+                
+                    <label for="input_celular">Celular:</label>
+                    <input type="number" id="input_celular" placeholder="Digite seu celular">
+               
+                </div>
+
+                <div class="divisao"></div>
+
+            <div class="pt_2">
+            
+                <label for="input_cep">Cep:</label>
+                <input type="number" min="0" id="input_cep" placeholder="Digite seu cep">
+           
+            
+                <label for="input_bairro">Bairro:</label>
+                <input type="text" id="input_bairro" placeholder="Digite sua bairro">
+           
+            
+                <label for="input_cidade">Cidade:</label>
+                <input type="text" id="input_cidade" placeholder="Digite sua cidade">
+           
+            
+                <label for="input_rua">Rua:</label>
+                <input type="text" id="input_rua" placeholder="Digite sua rua">
+            
+            </div>
+
+                
+                <button type="button" class="btn" onclick="cadastrar()">Cadastrar</button>
+                
+            </form>
+        </div>
+         <!--    <div class="img_fundo">
+                <div class="img"> </div>
+            </div> -->
+    
+        </section>  
+
+
+        
+
+</body>
+</html>
+
+<script>
+
+   
+
+
+
+    function cadastrar(){
+
+        var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var celularVar = input_celular.value;
+    var cepVar = input_cep.value;
+    var bairroVar = input_bairro.value;
+    var cidadeVar = input_cidade.value;
+    var ruaVar = input_rua.value;
+    
+fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                celularServer : celularVar,
+                cepServer : cepVar,
+                bairroServer : bairroVar,
+                cidadeServer : cidadeVar,
+                ruaServer : ruaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+               
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+               
+              
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+       
+        });
+
+        return false;
+    }
+</script>

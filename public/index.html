@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <title>Hoopers || Inicio</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <div class="header">
         <div class="container">
-            <div class=" logo"> <img src="../imgs/My project.png" >
-            </div>
+            <div class=" logo"><img src="./imgs/My project.png" ></div>
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
                 <li class="agora">
-                    <a  href="#container_tela" onclick="agora()">Inicio</a>
+                    <a style="color: white;"  href="#container_tela" onclick="agora()">Inicio</a>
                 </li>
                 <li>
-                    <a  href="#container_tela_conheca" onclick="agora()">O que somos ?</a>
+                    <a  href="#container_tela_conheca" onclick="agora()">Quem somos ?</a>
                 </li>
                 <li>
-                    <a href="" onclick="agora()">Login</a>
+                    <a href="./login.html" onclick="agora()">Login</a>
                 </li>
                 <li>
-                    <a href="" onclick="agora()">Contato</a>
+                    <a href="." onclick="agora()">Contato</a>
                 </li>
             </ul>
         </div>
@@ -38,9 +37,8 @@
                   
                 </span>
             </div>
-            <div class="box_img_inicio">
-                
-                <img src="../imgs/dunk.jpg" alt="">
+            <div class="box_img_inicio">     
+                <img  id="img_inicio" onmouseenter="troca_img('img_inicio', './imgs/2_img_inicio.jpg'  )" src="./imgs/dunk.jpg" alt="">
             </div>
         </div>
     </section>
@@ -48,24 +46,24 @@
     <section id="parte_conheca_hoopers">
         <div id="container_tela_conheca">
            
-            <div class="cinza">
-                <button class="btn_cadastro">
+            <div onclick="btn_cadastrar_index()" class="cinza">
+                <button  class="btn_cadastro">
                     Cadastre-se
                 </button>
-                <button class="btn_login">
+                <button onclick="btn_login_index()" class="btn_login">
                    Login
                 </button>
             </div>
             <div class="roxo">
                 <div class="div_imgs">
-                    <img src="../imgs/basketball-player.png" alt="">
-                    <img src="../imgs/basketball-player.png" alt="">
-                    <img src="../imgs/basketball-player.png" alt="">
+                    <img src="./imgs/basketball-player.png" alt="">
+                    <img src="./imgs/blog (1).png" alt="">
+                    <img src="./imgs/vlogger.png" alt="">
                 </div>
                 <div class="div_desc_imgs">
                     <span class="span_img_player" >Conheça nosso mundo dos hoopers, e se torne um também</span>
-                    <span class="span_img_player" >Conheça nosso mundo dos hoopers, e se torne um também</span>
-                    <span class="span_img_player" >Conheça nosso mundo dos hoopers, e se torne um também</span>
+                    <span class="span_img_player" >Faça potagens das suas jogadas, e converse sobre as demais</span>
+                    <span class="span_img_player" >Vote em seu influenciador favorito podendo indicar outros</span>
                 </div>
            </div>
           
@@ -73,3 +71,5 @@
     </section>
 </body>
 </html>
+
+<script src="./js/inicio.js"></script>

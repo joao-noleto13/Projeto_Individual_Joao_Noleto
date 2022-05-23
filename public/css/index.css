@@ -79,12 +79,19 @@ body{
     color: #252525;
     font-size: 26px;
   }
-
+  
   .agora {
     font-weight: 400;
     color: #7952B3;
+    background-color: #7952b342;
+    width: 15%;
+    height: 60%;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
+
   .navbar {
     width: 37vw;
     display: flex;
@@ -197,7 +204,12 @@ body{
     height: 80%;
     }
 
+    .img_inicio { 
+      transition: 2s;
+     height: 100%;
+    }
 
+    
   
 
 /*   Segunda parte, conheça    */
@@ -304,7 +316,7 @@ body{
   }
 
   .div_imgs img{
-    width: 15%;
+    width: 14%;
   }
 
   .div_desc_imgs{
@@ -318,5 +330,10 @@ body{
 
   .span_img_player{
     width: 25%;
-    font-size : 16px;
+    font-size : 18px;
+  }
+
+  .btn_cadastro a{
+    text-decoration: none;
+    color: #00000000;
   }
