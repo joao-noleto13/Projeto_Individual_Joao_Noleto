@@ -31,8 +31,21 @@ function cadastrar(nome, email, senha , celular , cep , bairro , cidade , rua) {
     return database.executar(instrucao);
 }
 
+function cadastrar_voto(voto,fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_voto():", voto ,fkUsuario);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        update usuario set fkVoto = ${voto} where idUsuario = ${fkUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    cadastrar_voto
 };

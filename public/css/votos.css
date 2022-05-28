@@ -85,7 +85,7 @@ body{
     font-weight: 400;
     color: #7952B3;
     background-color: #7952b342;
-    width: 15%;
+    width: 20%;
     height: 60%;
     border-radius: 5%;
     display: flex;
@@ -153,12 +153,15 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    
   }
 
   .box_fotos img{
     width: 20%;
     border-radius: 5px;
     transition: 1.2s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 6px 0px, rgba(0, 0, 0, 0.1) 0px 8px 8px 0px, rgba(0, 0, 0, 0.1) 0px 16px 16px 0px, rgba(0, 0, 0, 0.15) 8px 32px 32px 0px, rgba(0, 0, 0, 0.15) 8px 64px 64px 0px;
+    border: 3px outset black;
   }
 
   .caio_img:hover{
@@ -166,6 +169,7 @@ body{
     border-radius: 45px;
     transform: scale(1.1);
     box-shadow: rgba(164, 114, 240, 0.726) 0px 5px 15px 0px;
+    border: none;
   }
 
   .dpc_img:hover{
@@ -173,6 +177,7 @@ body{
     border-radius: 45px;
     transform: scale(1.1);
     box-shadow: rgba(43, 57, 245, 0.726) 0px 5px 15px 0px;
+    border: none;
   }
 
   .ninja_img:hover{
@@ -180,6 +185,7 @@ body{
     border-radius: 45px;
     transform: scale(1.1);
     box-shadow: rgba(230, 143, 13, 0.726) 0px 5px 15px 0px;
+    border: none;
   }
 
   .box_nomes{
@@ -190,8 +196,9 @@ body{
     justify-content: space-evenly;
   }
 
-  .box_nomes button{
-    font-size: 18px;
+  .box_nomes span{
+    padding: 8px;
+    font-size: 22px;
     margin-left: -5%;
     position: absolute;
     border: none;
@@ -200,6 +207,8 @@ body{
     transition: 0.4s;
     height: 6%;
     background-color: #adb6c0c0;
+    align-items: center;
+    box-shadow: rgb(0, 0, 0) 0px 0px 15px 0px inset;
   }
 
   .caio_btn:hover{
@@ -223,6 +232,9 @@ body{
     transform: scale(1.06);
   }
 
+  /*Caio
+  */
+
   .container_caio{
     width: 100%;
     height: 100vh;
@@ -240,13 +252,17 @@ body{
   }
   .img_fundo img{
     height: 90%;
+    
   }
   .sobre_caio{
     width: 70%;
     height: 90%;
-    background-color: #1d1520;
+    background-color: #271530;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    box-shadow: rgb(207, 163, 243) 15px 0px 15px -15px inset;
+
   }
 
   .titulo_sobre{
@@ -261,9 +277,248 @@ body{
   .explicando_sobre{
     width: 80%;
     height: 40%;
-    margin-top: 7%;
+    margin-top: 4%;
     margin-left: 4%;
     display: flex;
     color: #E1E8EB;
     font-size: 18px;
+  }
+
+  .explicando_sobre p{
+    margin-left: 10%;
+    width: 90%;
+  }
+
+  .video_caio{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #video{
+    margin-top: 2%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+  }
+
+  .botao_votar_caio{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .botao_votar_caio button{
+    padding: 12px 10px;
+    border: 0;
+    width: 35%;
+    background: linear-gradient(to right, #7952b3cb 0%,#c09bf7cb 100%); 
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 1s;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    margin-top: 2%;
+  }
+
+  .botao_votar_caio button:hover{
+    background-color: #ffc400a1;
+    transform: scale(1.08)
+  }
+
+  /* DPC*/
+
+  .container_dpc{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+  }
+
+  .img_fundo{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    float: left;
+  }
+  .img_fundo img{
+    height: 90%;
+  }
+
+  .sobre_dpc{
+    width: 70%;
+    height: 90%;
+    background-color: #10102b;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgb(107, 106, 107) 15px 0px 15px -15px inset;
+  }
+
+  .titulo_sobre{
+    width: 100%;
+    height: 5%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    color: #E1E8EB;
+  }
+
+  .explicando_sobre{
+    width: 80%;
+    height: 40%;
+    margin-top: 4%;
+    margin-left: 4%;
+    display: flex;
+    color: #E1E8EB;
+    font-size: 18px;
+  }
+
+  .video_dpc{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #video{
+    margin-top: 2%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+  }
+
+  .botao_votar_dpc{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .botao_votar_dpc button{
+    padding: 12px 10px;
+    border: 0;
+    width: 35%;
+    background: linear-gradient(to right, #52a5cccb 0%,#1d1f91cb 100%); 
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 1s;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    margin-top: 2%;
+  }
+
+  .botao_votar_dpc button:hover{
+    background-color: #181a91a1;
+    transform: scale(1.08)
+  }
+
+  /* Ninja */
+
+  
+  .container_ninja{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+  }
+
+  .img_fundo{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    float: left;
+  }
+  .img_fundo img{
+    height: 90%;
+  }
+
+  .sobre_ninja{
+    width: 70%;
+    height: 90%;
+    background-color: #9c3c12;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgb(240, 240, 240) 15px 0px 15px -15px inset;
+  }
+
+  .titulo_sobre{
+    width: 100%;
+    height: 5%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    color: #E1E8EB;
+  }
+
+  .explicando_sobre{
+    width: 80%;
+    height: 40%;
+    margin-top: 4%;
+    margin-left: 4%;
+    display: flex;
+    color: #E1E8EB;
+    font-size: 18px;
+  }
+
+  .video_ninja{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #video{
+    margin-top: 2%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+  }
+
+  .botao_votar_ninja{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .botao_votar_ninja button{
+    padding: 12px 10px;
+    border: 0;
+    width: 35%;
+    background: linear-gradient(to right, #fae20ce1 0%,#f57003 100%); 
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 1s;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    margin-top: 2%;
+  }
+
+  .botao_votar_ninja button:hover{
+    background-color: #181a91a1;
+    transform: scale(1.08)
   }

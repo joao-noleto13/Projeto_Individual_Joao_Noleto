@@ -1,62 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Influencers </title>
-    <link rel="stylesheet" href="./css/votos.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Influencers</title>
+    <link rel="stylesheet" href="./css/votos.css" />
+    <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico">
+  </head>
+  <body>
     <div class="header">
-        <div class="container">
-            <div class=" logo"> <img src="./imgs/My project.png" >
-            </div>
-            <h1 class="titulo">Hoopers</h1>
-            <ul class="navbar">
-                <li>
-                    <a  href="index.html" onclick="agora()">Inicio</a>
-                </li>
-                <li>
-                    <a  href="comentarios.html" onclick="agora()">Comentário</a>
-                </li>
-                <li class="agora">
-                    <a href="">Votos</a>
-                </li>
-                <li>
-                    <a href="dashboard.html" onclick="agora()">Dashboard</a>
-                </li>
-            </ul>
-        </div>
+      <div class="container">
+        <div class="logo"><img src="./imgs/My project.png" /></div>
+        <h1 class="titulo">Hoopers</h1>
+        <ul class="navbar">
+          <li>
+            <a href="index.html" onclick="agora()">Inicio</a>
+          </li>
+          <li>
+            <a href="comentarios.html" onclick="agora()">Comentário</a>
+          </li>
+          <li class="agora">
+            <a href="">Votos</a>
+          </li>
+          <li>
+            <a href="dashboard.html" onclick="agora()">Dashboard</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="container_explicacao">
-        <div class="box_texto">
-            <span>  Conheça um pouco sobre esses influencers e youtubers de basketball</span> <span style="margin-left:30% ;"> e escolha um que te represente mais </span>
-        </div>
-        <div class="box_fotos">
-            <img class="caio_img" src="./imgs/caio teixeira.jpg" alt="">
-            <img class="dpc_img" src="./imgs/dpc.jpg" alt="">
-            <img class="ninja_img" src="./imgs/ninja 2.jpg" alt="">
-        </div>
-        <div class="box_nomes">
-            <button class="caio_btn" style="margin-left:-62% ;">Conheça: Caio</button>  
-            <button class="dpc_btn"  style="margin-left:1% ;">Conheça: DPC</button>
-            <button class="ninja_btn" style="margin-left:60% ;">Conheça: Ninja</button>
-        </div>
+      <div class="box_texto">
+        <span>
+         <span style="font-size: 26px;color: blueviolet;" id="nome_usuario"></span> Conheça um pouco sobre esses influencers e youtubers de
+          basketball e escolha um que te represente mais</span
+        >
+        
+      
+      </div>
+      <div class="box_fotos">
+        <img
+          onclick="caio()"
+          class="caio_img"
+          src="./imgs/caio teixeira.jpg"
+          alt=""
+        />
+        <img onclick="dpc()" class="dpc_img" src="./imgs/dpc.jpg" alt="" />
+        <img
+          onclick="ninja()"
+          class="ninja_img"
+          src="./imgs/ninja 2.jpg"
+          alt=""
+        />
+      </div>
+      <div class="box_nomes">
+        <span class="caio_btn" style="margin-left: -62%">Conheça: Caio</span>
+        <span class="dpc_btn" style="margin-left: 1%">Conheça: DPC</span>
+        <span class="ninja_btn" style="margin-left: 60%">Conheça: Ninja</span>
+      </div>
     </div>
-    <div class="container_caio">
-        <div class="img_fundo">
-            <img src="./imgs/caio teixeira 2.jpg" alt="">
+
+    <div class="container_caio" id="link_caio">
+      <div class="img_fundo">
+        <img src="./imgs/caio teixeira 2.jpg" alt="" />
+      </div>
+      <div id="caio_sobre" class="sobre_caio">
+        <div class="titulo_sobre">
+          <h1>Caio teixeira</h1>
         </div>
-        <div class="sobre_caio">
-            <div class="titulo_sobre">
-                <h1>Caio teixeira</h1>
-            </div>
-            <div class="explicando_sobre">
-                <p>• ㅤCaio Teixeira é um atleta e youtuber brasileiro. Em 2012, criou um canal no YouTube que leva o nome dele. O criador produz conteúdo sobre esportes e estilo de vida, além de gravar alguns vlogs. Caio é atleta de basquete em uma universidade americana e mudou-se para o EUA para viver como jogador. O carioca criou o canal com o intuito de narrar como é a vida de um brasileiro atleta no país norte-americano, falando sobre rotina de treinos, desafios, trollagens com os gringos e tags</p>
-            </div>
+        <div class="explicando_sobre">
+          <p>
+            • ㅤCaio Teixeira é um atleta e youtuber brasileiro. Em 2012, criou
+            um canal no YouTube que leva o nome dele. O criador produz conteúdo
+            sobre esportes e estilo de vida, além de gravar alguns vlogs. Caio é
+            atleta de basquete em uma universidade americana e mudou-se para o
+            EUA para viver como jogador. O carioca criou o canal com o intuito
+            de narrar como é a vida de um brasileiro atleta no país
+            norte-americano, falando sobre rotina de treinos, desafios,
+            trollagens com os gringos e tags
+          </p>
         </div>
+
+        <div class="video_caio">
+          <video autoplay muted loop id="video">
+            <source src="./imgs/caio_video2.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div id="btn_caio" class="botao_votar_caio">
+          <button onclick="cadastrar_voto(2)">Votar</button>
+        </div>
+      </div>
     </div>
-</body>
+
+    <!-- DPC -->
+
+    <div class="container_dpc" id="link_dpc">
+      <div class="img_fundo">
+        <img style="margin-left: -25%;" src="./imgs/dpc_sobre.jpg" alt="" />
+      </div>
+      <div id="dpc_sobre" class="sobre_dpc">
+        <div class="titulo_sobre">
+          <h1>Dois por cento - DPC</h1>
+        </div>
+        <div class="explicando_sobre">
+          <p>
+            • ㅤO basquete surgiu na vida de Sidney Gabriel ainda na infância quando jogava na escola da ex-jogadora Janeth, comentarista da Liga de Basquete Feminino da TV Gazeta, e depois focou sua carreira para o basquete de rua e para o freestyle.
+
+            Por ser um grande expoente da modalidade freestyle, o jovem Sidney Gabriel criou o canal Dois Por Cento TV. Lá, o youtuber traz tutoriais, listas curiosidades e vídeos sobre a modalidade.
+          </p>
+        </div>
+
+        <div class="video_dpc">
+          <video autoplay muted loop id="video">
+            <source src="./imgs/dpc_video.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div class="botao_votar_dpc">
+          <button id="btn_dpc" onclick="cadastrar_voto(2)">Votar</button>
+        </div>
+      </div>
+    </div>
+
+<!-- Ninja -->
+
+<div class="container_ninja" id="link_ninja">
+  <div class="img_fundo">
+    <img style="margin-left:-20%;" src="./imgs/ninja_sobre.jpg" alt="" />
+  </div>
+  <div id="ninja_sobre" class="sobre_ninja">
+    <div class="titulo_sobre">
+      <h1>Douglas viegas - Ninja</h1>
+    </div>
+    <div class="explicando_sobre">
+      <p>
+        • ㅤO Influenciador Digital conta número significativo de seguidores nas redes sociais. Conhecido como “Poderosíssimo Ninja”, Douglas Viegas é na atualidade uma das principais referências do basquete no Brasil. Por seu jeito único e irreverente, conquistou milhões de seguidores em suas Redes Sociais.
+      </p>
+    </div>
+
+    <div class="video_ninja">
+      <video autoplay muted loop id="video">
+        <source src="./imgs/ninja_video.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="botao_votar_ninja">
+      <button id="btn_ninja" onclick="cadastrar_voto(3)">Votar</button>
+    </div>
+  </div>
+</div>
+
+  </body>
 </html>
+<script src="./js/inicio.js"></script>
+<script>
+
+function cadastrar_voto(voto){
+  alert("Oie")
+var voto_dado = voto
+
+fetch("/usuarios/cadastrar_voto", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          voto_dadoServer: voto_dado,
+          fkUsuarioServer: sessionStorage.ID_USUARIO
+      })
+  }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+      
+
+          setTimeout(() => {
+              window.location = "dashboard.html";
+          }, "2000")
+          
+         
+        
+      } else {
+          throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+  }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+ 
+  });
+
+  return false;
+}
+
+nome_usuario.innerHTML = (sessionStorage.NOME_USUARIO).toUpperCase();
+
+</script>

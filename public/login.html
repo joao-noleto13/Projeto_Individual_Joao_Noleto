@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoopers || Login </title>
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico">
 </head>
 <body>
     <div class="header">
         <div class="container">
-            <div class=" logo"> <img src="../imgs/My project.png" >
+            <div class=" logo"> <img src="./imgs/My project.png" >
             </div>
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
@@ -37,11 +38,11 @@
 
             <label for="input_email">Email:</label>
             <input type="text" id="input_email" placeholder="Digite seu email">
-            
+            <span id="span_erro_email"></span>
             <label for="input_senha">Senha:</label>
-            <input type="text" id="input_senha" placeholder="Digite sua senha">
+            <input type="password" id="input_senha" placeholder="Digite sua senha">
 
-            <button>Entrar</button>
+            <button type="button" onclick="entrar()">Entrar</button>
             <a href="cadastro.html">Cadastre-se</a> 
         </form>
     </div>
@@ -52,3 +53,68 @@
     </section>  
 </body>
 </html>
+
+</script>
+<script>
+function entrar() {
+  var emailVar = input_email.value;
+  var senhaVar = input_senha.value;
+
+  //Validação e-mail
+  if (
+      emailVar.indexOf("@") < 3 ||
+      emailVar.endsWith(".com.br", ".com", ".ind.br", ".ind")
+  ) {
+      span_erro_email.innerHTML = '*Insira "@" e terminação .com, por exemplo';
+  } else {
+      span_erro_email.innerHTML = "✓";
+  }
+
+  //Validação senha
+
+
+  fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+      }),
+  })
+      .then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!");
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then((json) => {
+                  console.log(json);
+                  console.log(JSON.stringify(json));
+
+                  sessionStorage.EMAIL_USUARIO = json.email;
+                  sessionStorage.NOME_USUARIO = json.nome;
+                  sessionStorage.ID_USUARIO = json.idUsuario;
+
+                  setTimeout(function () {
+                      window.location = "votos.html";
+                  }, 1000); // apenas para exibir o loading
+              });
+          } else {
+              console.log("Houve um erro ao tentar realizar o login!");
+
+              resposta.text().then((texto) => {
+                  console.error(texto);
+                  finalizarAguardar(texto);
+              });
+          }
+      })
+      .catch(function (erro) {
+          console.log(erro);
+      });
+
+  return false;
+}
+
+</script>
