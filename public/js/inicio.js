@@ -1,9 +1,9 @@
 function btn_cadastrar_index() {
-    window.location.assign("../html/cadastro.html")
+    window.location.assign("cadastro.html")
 }
 
 function btn_login_index() {
-    window.location.assign("../html/login.html")
+    window.location.assign("login.html")
 }
 
 /* Carrosel */

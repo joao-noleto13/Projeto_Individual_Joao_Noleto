@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico">
 </head>
-<body>
+<body onload="dash()">
     <div class="header">
         <div class="container">
             <div class=" logo"> <img src="./imgs/My project.png" >
@@ -30,5 +30,121 @@
             </ul>
         </div>
     </div>
+
+    <div class="container_dash" >
+        <div class="box_texto_inicio">
+        <p>Olá <span id="nome_usuario"></span> veja aqui sua taxa de comentarios em relação aos demais usuarios e também confira o influencer mais votado até agora</p>
+    </div>
+        <div class="box_dash">
+            <div id="grafico1">
+                <canvas id="myChart" ></canvas>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+Chart.defaults.color = "#E1E8EB";
+    
+
+  const data = {
+  labels: [
+    'Caio',
+    'Dpc',
+    'Ninja',
+    
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [` `,],
+    borderColor: '#333',
+    color: 'black',
+    backgroundColor: [
+      '#7952b3',
+      '#181a9a',
+      '#f57003'
+    ],
+    hoverOffset: 4
+  }]
+};
+  
+
+  const config = {
+    type: 'pie',
+    data: data,
+    options: { plugins: {
+            title: {
+                display: true,
+                text: 'Veja o influencer mais votado',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            }
+        }
+    }
+  };
+
+
+   const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+    nome_usuario.innerHTML = (sessionStorage.NOME_USUARIO).toUpperCase();
+
+    function dash(){
+
+        var qtd_run1 = 0
+        var qtd_run2 = 0;
+        var qtd_run3 = 0;
+
+        
+        var nome_run1 = "";
+        var nome_run2 = "";
+        var nome_run3 = "";
+     
+
+fetch("/usuarios/puxar_voto").then(function (resposta) {
+    if (resposta.ok) {
+
+        resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            qtd_run1 = resposta[0].qtd;
+            nome_run1 = resposta[0].tipo;
+
+            if (resposta[1]) {
+                qtd_run2 = resposta[1].qtd;
+                nome_run2 = resposta[1].tipo;
+            }
+            if (resposta[2]) {
+                qtd_run3 = resposta[2].qtd;
+                nome_run3 = resposta[2].tipo;
+            }
+
+            if (resposta[3]) {
+                qtd_run4 = resposta[3].qtd;
+                nome_run4 = resposta[3].tipo;
+            }
+
+            if (resposta[4]) {
+                qtd_run5 = resposta[4].qtd;
+                nome_run5 = resposta[4].tipo;
+            }
+        });
+    } else {
+        throw ('Houve um erro na API!');
+    }
+}).catch(function (resposta) {
+    console.error(resposta);
+});
+
+}
+
+
+    
+
+</script>
+

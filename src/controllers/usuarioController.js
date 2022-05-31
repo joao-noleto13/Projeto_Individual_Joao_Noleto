@@ -45,6 +45,7 @@ function entrar(req, res) {
                         res.json(resultado[0]);
                     } else if (resultado.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
+                        
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
@@ -130,10 +131,31 @@ function cadastrar(req, res) {
     }
 }
 
+
+function puxar_voto(req, res) {
+    usuarioModel.puxar_voto()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+    
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-    cadastrar_voto
+    cadastrar_voto,
+    puxar_voto
 }
