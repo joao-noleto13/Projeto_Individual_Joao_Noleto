@@ -85,8 +85,8 @@ body{
     font-weight: 400;
     color: #7952B3;
     background-color: #7952b342;
-    width: 20%;
-    height: 60%;
+    padding: 1%;
+    height: 40%;
     border-radius: 5%;
     display: flex;
     align-items: center;
@@ -168,7 +168,7 @@ body{
     width: 20%;
     border-radius: 45px;
     transform: scale(1.1);
-    box-shadow: rgba(164, 114, 240, 0.726) 0px 5px 15px 0px;
+    box-shadow: #a472f0b9 0px 5px 15px 0px;
     border: none;
   }
 
@@ -176,7 +176,7 @@ body{
     width: 20%;
     border-radius: 45px;
     transform: scale(1.1);
-    box-shadow: rgba(43, 57, 245, 0.726) 0px 5px 15px 0px;
+    box-shadow: #2b39f5b9 0px 5px 15px 0px;
     border: none;
   }
 
@@ -184,7 +184,7 @@ body{
     width: 20%;
     border-radius: 45px;
     transform: scale(1.1);
-    box-shadow: rgba(230, 143, 13, 0.726) 0px 5px 15px 0px;
+    box-shadow: #e68f0db9 0px 5px 15px 0px;
     border: none;
   }
 
@@ -522,3 +522,6 @@ body{
     background-color: #181a91a1;
     transform: scale(1.08)
   }
+   body{
+     color: rgb(26, 25, 25)
+   }

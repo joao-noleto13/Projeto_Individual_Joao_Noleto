@@ -21,10 +21,10 @@
                 <li>
                     <a  href="comentarios.html" onclick="agora()">Comentário</a>
                 </li>
-                <li class="agora">
+                <li >
                     <a href="votos.html" onclick="agora()">Votos</a>
                 </li>
-                <li>
+                <li class="agora">
                     <a href="" onclick="agora()">Dashboard</a>
                 </li>
             </ul>
@@ -43,96 +43,43 @@
     </div>
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-
-Chart.defaults.color = "#E1E8EB";
-    
-
-  const data = {
-  labels: [
-    'Caio',
-    'Dpc',
-    'Ninja',
-    
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [` `,],
-    borderColor: '#333',
-    color: 'black',
-    backgroundColor: [
-      '#7952b3',
-      '#181a9a',
-      '#f57003'
-    ],
-    hoverOffset: 4
-  }]
-};
-  
-
-  const config = {
-    type: 'pie',
-    data: data,
-    options: { plugins: {
-            title: {
-                display: true,
-                text: 'Veja o influencer mais votado',
-                padding: {
-                    top: 10,
-                    bottom: 30
-                }
-            }
-        }
-    }
-  };
-
-
-   const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-
     nome_usuario.innerHTML = (sessionStorage.NOME_USUARIO).toUpperCase();
+    nome_usuario.style.color = `#FFF`
+    
+        var qtd_votos1 = 0;
+        var qtd_votos2 = 0;
+        var qtd_votos3 = 0;
+
+    
+        var nome_influ1 = "";
+        var nome_influ2= "";
+        var nome_influ3= "";
 
     function dash(){
 
-        var qtd_run1 = 0
-        var qtd_run2 = 0;
-        var qtd_run3 = 0;
-
-        
-        var nome_run1 = "";
-        var nome_run2 = "";
-        var nome_run3 = "";
-     
 
 fetch("/usuarios/puxar_voto").then(function (resposta) {
     if (resposta.ok) {
 
         resposta.json().then(function (resposta) {
             console.log("Dados recebidos: ", JSON.stringify(resposta));
-            qtd_run1 = resposta[0].qtd;
-            nome_run1 = resposta[0].tipo;
+            var teste = resposta
+            qtd_votos1 = resposta[0].voto_recebido;
+            nome_influ1= resposta[0].nome;
 
             if (resposta[1]) {
-                qtd_run2 = resposta[1].qtd;
-                nome_run2 = resposta[1].tipo;
+                qtd_votos2  = resposta[1].voto_recebido;
+                nome_influ2 = resposta[1].nome;
             }
             if (resposta[2]) {
-                qtd_run3 = resposta[2].qtd;
-                nome_run3 = resposta[2].tipo;
+                qtd_votos3  = resposta[2].voto_recebido;
+                nome_influ3 = resposta[2].nome;
             }
 
-            if (resposta[3]) {
-                qtd_run4 = resposta[3].qtd;
-                nome_run4 = resposta[3].tipo;
-            }
+          
 
-            if (resposta[4]) {
-                qtd_run5 = resposta[4].qtd;
-                nome_run5 = resposta[4].tipo;
-            }
+            graficos1()
         });
     } else {
         throw ('Houve um erro na API!');
@@ -141,10 +88,90 @@ fetch("/usuarios/puxar_voto").then(function (resposta) {
     console.error(resposta);
 });
 
+
+
 }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+function graficos1(){
+
+ 
+
+     
+    const data = {
+      labels: [
+  
+      ],
+      datasets: [{
+        label: 'My First Dataset',
+        data: [],
+        backgroundColor: [
+          'rgb(153, 0, 255)',
+          'rgb(0, 110, 255)',
+          'rgb(255, 136, 0)',
+          
+        ],
+        borderColor: 'rgb(26, 25, 25)',
+        hoverOffset: 4,
+        borderWidth:1,
+        borderJoinStyle: 'miter',
+        borderAlign: 'inner',
+        borderRadius: 'outerEnd'
+      },]
+    };
+  
+    Chart.defaults.color = "#FFF"
+   
+    data.labels.push(nome_influ1)
+      data.datasets[0].data.push(qtd_votos1)
+ 
+    if (qtd_votos2 > 0) {
+      data.labels.push(nome_influ2)
+      data.datasets[0].data.push(qtd_votos2)
+    }
+    if (qtd_votos3 > 0) {
+      data.labels.push(nome_influ3)
+      data.datasets[0].data.push(qtd_votos3)
+    }
+    
+    const config = {
+      type: 'pie',
+      data: data,
+      options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Veja os influencers mais votados',
+                padding: {
+                    top: 20,
+                    bottom: 20
+                }
+            }
+            
+        }
+      }
+
+
+    };
+    
+    
+    
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
 
 
     
+    
+}
 
+
+  
+
+  
+  
+     
 </script>
 

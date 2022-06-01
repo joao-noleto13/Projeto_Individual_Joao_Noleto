@@ -84,8 +84,8 @@ body{
     font-weight: 400;
     color: #7952B3;
     background-color: #7952b342;
-    width: 15%;
-    height: 60%;
+    padding: 1%;
+    height: 40%;
     border-radius: 5%;
     display: flex;
     align-items: center;
