@@ -1,3 +1,4 @@
+
 function btn_cadastrar_index() {
     window.location.assign("cadastro.html")
 }
@@ -6,32 +7,25 @@ function btn_login_index() {
     window.location.assign("login.html")
 }
 
-/* Carrosel */
 
-var lista_img = ['./imgs/dunk.jpg', './imgs/crias.jpg', './imgs/2_img_inicio.jpg', './imgs/img_inicio3.jpg'];
 
-let count = 0;
+let count = 1;
 
-setInterval(function() {
-    img_inicio.style.transition = 'width 2s'
-    img_inicio.style.width = 0;
-    nextImage()
-}, 6000)
+document.getElementById("radio1").checked = true;
 
-function nextImage() {
-count++;
-if (count == 4) {
-    count = 0;
+setInterval(function(){
+    nextImage();
+},5000)
 
-}
-setTimeout(function(){
-    img_inicio.src = lista_img[count]
-    img_inicio.style.width = '100%'
-}, 8000)
+function nextImage(){
+    count ++
+    if(count > 4 ){
+        count = 1
+    }
+
+    document.getElementById("radio" + count).checked = true
 
 }
-
-
 
 
 //Post BD Cliente.api.post<T>();

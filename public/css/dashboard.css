@@ -135,14 +135,14 @@ body{
   .box_texto_inicio{
     width: 65%;
     height: 20%;
-    background-color: #7952b37e;
+    background-color: #3d304e;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px 5px;
     border-radius: 12px;
     margin-top: 7%;
-    border: 1.5px #ff8147 outset;
+    border: 1.5px #f7d494 outset;
   }
 
   .box_texto_inicio p{
@@ -154,7 +154,7 @@ body{
   .box_dash{
     width: 90%;
     height:50%;
-    background-color: #1d142b;
+    background-color: #3d304e;
     margin-top: 2%;
     border-radius: 12px;
     display: flex;
@@ -162,7 +162,7 @@ body{
     align-items: center;
     box-shadow: rgb(0, 0, 0) 0px 0px 15px 0px inset;
     /* box-shadow: rgba(206, 206, 200, 0.486) 0px -50px 36px -28px inset; */
-    border: 1.5px #ff8147 outset;
+    border: 1.5px #f7d494 outset;
   }
 
   #grafico1{

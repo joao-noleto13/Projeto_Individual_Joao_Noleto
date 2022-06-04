@@ -40,6 +40,7 @@ body{
     position: fixed;
     width: 100%;
     height: 15vh;
+    z-index: 999;
   }
   
   .header .container {
@@ -139,6 +140,8 @@ body{
   #primeira_tela{
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: space-around;
 
   }
 
@@ -180,21 +183,124 @@ body{
   
 
   .box_img_inicio{
-    width: 24%;
-    height: 70vh;
+    margin: 0 auto;
+    width: 280px;
+    height: 380px;
+    overflow: hidden;
     display: flex;
-    float: left;
+    margin-top: 10%;
+   
+  /*   float: left; */
    /*  box-shadow: 12px 12px rgba(218, 218, 218, 0.671); */
-   margin-top: 10%;
-   margin-left: 5%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
 
+  .slides{
+    width: 400%;
+    height: 400px;
+    display: flex;
+  }
+
+  .slides input{
+    display: none;
+  }
+
+  .slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+  }
+
+  .manual-navigation{
+    position:absolute;
+    width: 25%;
+    height: 64%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .manual_btn{
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 50%;
+   
+  }
+
+  .manual_btn{
+    margin-right:40px;
+    transition: 1s;
+  }
+
+  .manual_btn:not(:last-child){
+    margin-right: 40px;
+  }
+
+  .manual_btn:hover{
+    background-color: #E1E8EB;
+  }
+
+  #radio1:checked ~ .first{
+    margin-left: 0;
+  }
+
+  #radio2:checked ~ .first{
+    margin-left: -25%;
+  }
+
+  #radio3:checked ~ .first{
+    margin-left: -50%;
+  }
+
+  #radio4:checked ~ .first{
+    margin-left: -75%;
+  }
+
+  .navigation_auto div{
+    border: 1.7px outset rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .navigation_auto{
+    position:absolute;
+    width: 25%;
+    height: 64%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: -1.43%;
+  }
+
+  .navigation_auto div:not(:last-child){
+    margin-right: 40px;
+  }
+
+  #radio1:checked ~ .navigation_auto .auto_btn1{
+    background-color: #E1E8EB;
+  }
+
+  #radio2:checked ~ .navigation_auto .auto_btn2{
+    background-color: #E1E8EB;
+  }
+
+  #radio3:checked ~ .navigation_auto .auto_btn3{
+    background-color: #E1E8EB;
+  }
+
+  #radio4:checked ~ .navigation_auto .auto_btn4{
+    background-color: #E1E8EB;
+  }
 
   .box_img_inicio img{
-    height: 100%;
+    height: 400px;
     border-radius:  2%;
-  
-
   }
 
   .box_img_inicio img:hover {
@@ -263,7 +369,7 @@ body{
    
   .cinza{
     width: 20%;
-    height: 80vh;
+    height: 60vh;
     background-color: #343A40;
     background-color: #252525;
     margin-left: -5%;
@@ -279,9 +385,9 @@ body{
 
 
   .cinza:hover {
-    border-radius: 50% 50% 30% 30%  / 5% 5% 0% 0%  ;
     box-shadow: 10px 10px rgba(0,0,0,.25);
-    
+    border-radius: 24px;
+    transition: 0.8s;
   }
 
   .roxo {
