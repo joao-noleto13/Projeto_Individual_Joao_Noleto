@@ -28,7 +28,53 @@ fkVoto int,
 foreign key (fkVoto) references voto(idVoto)
 );
 
+CREATE TABLE aviso (
+id INT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(100),
+descricao VARCHAR(450),
+fk_usuario INT,
+FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+);
+
+select a.id as idUsuario from aviso as a;
+
+
+SELECT 
+            a.id as idAviso,
+            a.titulo,
+            a.descricao,
+            a.fk_usuario,
+            u.idUsuario as idUsuario,
+            u.nome,
+            u.email,
+            u.senha
+        FROM aviso as a
+            INNER JOIN usuario as u
+                ON a.fk_usuario = u.idUsuario;
+
+select * from aviso;
+
 select * from usuario;
 
+insert into usuario (nome,fkVoto) values
+('teste', 1),
+('teste', 2),
+('teste', 1),
+('teste', 2),
+('teste', 3),
+('teste', 3),
+('teste', 2),
+('teste', 1),
+('teste', 3),
+('teste', 2);
 
-
+insert into usuario (nome,fkVoto) values 
+('teste', 1),
+('teste', 1),
+('teste', 1),
+('teste', 1),
+('teste', 1),
+('teste', 1),
+('teste', 1),
+('teste', 1),
+('teste', 3);

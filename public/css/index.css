@@ -436,3 +436,111 @@ body{
     text-decoration: none;
     color: #00000000;
   }
+
+
+  #parte_sobre_mim{
+    height: 100vh;
+    width: 100%;
+  }
+
+  
+  .container_joao{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+  }
+
+  .img_fundo{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    float: left;
+    margin-left: 2%;
+  }
+  .img_fundo img{
+    height: 92%;
+   
+  }
+  .sobre_joao{
+    width: 80%;
+    height: 92%;
+    background-color: #0d2923;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: rgb(52, 153, 145) 15px 0px 15px -15px inset;
+
+  }
+
+  .titulo_sobre{
+    width: 100%;
+    height: 5%;
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    color: #E1E8EB;
+  }
+
+  .explicando_sobre{
+    width: 80%;
+    height: 40%;
+    margin-top: 4%;
+    margin-left: 4%;
+    display: flex;
+    color: #E1E8EB;
+    font-size: 18px;
+  }
+
+  .explicando_sobre p{
+    margin-left: 10%;
+    width: 90%;
+  }
+
+  .video_joao{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #video{
+    margin-top: 2%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+  }
+
+  .botao_votar_joao{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trocar_video{
+    padding: 12px 10px;
+    border: 0;
+    width: 35%;
+    background: linear-gradient(to right, rgb(38, 105, 100) 0%,rgb(148, 230, 223) 100%); 
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 1s;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    margin-top: 3%;
+    margin-left: 33%;
+  }
+
+  .trocar_video:hover{
+    background-color: #ffc400a1;
+    transform: scale(1.08)
+  }

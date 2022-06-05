@@ -45,3 +45,15 @@ function dpc() {
 function ninja() {
     window.location = 'votos.html#link_ninja'
 }
+
+
+function trocar_video(){
+
+    if(document.getElementById("video").style.display = "none" == true){
+
+    document.getElementById("video2").style.display = "block"
+}
+else{
+    document.getElementById("video").style.display = "none"
+}
+}

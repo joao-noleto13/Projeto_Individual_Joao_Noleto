@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/comentarios.css">
     <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico">
 </head>
-<body>
+<body onload="atualizarFeed()">
     <div class="header">
         <div class="container">
             <div class=" logo"> <img src="./imgs/My project.png" >
@@ -32,17 +32,66 @@
     </div>
 
     
+    <div class="dash-right">
+
+        <div class="avisos">
+            <div class="container_avisos">
+                <h1 style="margin-top:8%;">Publicar um comentario</h1>
+                <div class="div-form">
+                    <form id="form_postagem" method="post" onsubmit="return publicar()">
+                        <label>
+                            Seu topico de discussão:
+                            <br>
+                            <input name="titulo" id="titulo" maxlength="100" type="text">
+                        </label>
+                        <br>
+                        <label>
+                            Descrição (máximo de 450 caracteres):
+                            <br>
+                            <textarea name="descricao" id="textarea_descricao" maxlength="450" rows="5"></textarea>
+                        </label>
+                        <br>
+                        <button type="button" onclick="publicar()" >Enviar</button>
+                    </form>
+                </div>
+                <h1>Mural de Avisos</h1>
+                <div class="div-results">
+                    <div id="feed_container" class="feed-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- MODAL -->
+        <!-- <div id="div_modal" class="div-modal">
+            <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
+            </div>
+            <div id="modal_container" class="modal-container">
+                <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
+            </div>
+        </div> -->
+
+        <!-- AGUARDAR -->
+        <!-- <div id="div_aguardar" class="div-aguardar">
+            <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
+        </div>  -->
+
+    </div>
+
 </body>
 </html>
 
 <script>
-    
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    function limparFormulario() {
+    var lista_cores = ["white", "yellow"]
+
+
+function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
-
     function publicar() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -63,7 +112,7 @@
 
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
+                window.location = "comentarios.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -79,7 +128,6 @@
         return false;
 
     }
-
     function editar(idAviso) {
         sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
         console.log("cliquei em editar - " + idAviso);
@@ -99,7 +147,7 @@
 
             if (resposta.ok) {
                 window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
+                window.location = "comentarios.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -109,6 +157,7 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
+
 
     function atualizarFeed() {
         //aguardar();
@@ -141,8 +190,8 @@
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanID.innerHTML = "Número do comentário: <b>" + publicacao.idAviso + "</b>";
+                        spanTitulo.innerHTML = "Tópico da discussão: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
@@ -172,8 +221,8 @@
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
-                    }
 
+                    }
                     finalizarAguardar();
                 });
             } else {
@@ -181,12 +230,10 @@
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            finalizarAguardar();
         });
     }
 
-    function testar() {
-        aguardar();
+      function testar() {
 
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
 
@@ -195,7 +242,8 @@
         divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
         divResultado.innerHTML = formulario.get("descricao");
 
-        finalizarAguardar();
 
         return false;
     }
+
+</script>

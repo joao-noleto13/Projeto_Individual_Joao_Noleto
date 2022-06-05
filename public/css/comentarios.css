@@ -40,6 +40,7 @@ body{
     position: fixed;
     width: 100%;
     height: 15vh;
+    position: fixed;
   }
   
   .header .container {
@@ -120,4 +121,140 @@ body{
 
   .logo img{
       width: 85%;
+  }
+
+  
+
+  dash-right .avisos {
+    width: 100%;
+   
+    /* border: 3px solid pink; */
+    color: rgb(216, 216, 216);
+    font-family: "Exo 2", sans-serif;
+  }
+
+  .container_avisos .publicacao{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  
+  .dash-right .avisos .container_avisos {
+    display: flex;
+    flex-direction: column;
+ 
+    align-items: center;
+    color: #E1E8EB;
+    margin-bottom: 2%;
+  }
+  
+  .dash-right .avisos .container_avisos .div-form {
+    width: 100%;
+    margin-top: 5%;
+  }
+  
+  .dash-right .avisos .container_avisos .div-form #form_postagem {
+    width: 70%;
+    height: 100%;
+    padding: 15px;
+    background-color: #261c36;
+    border-radius: 12px;
+    margin-left: 15%;
+    color: #E1E8EB;
+    border: #E1E8EB 1px outset;
+  }
+  
+  .dash-right .avisos .div-form label {
+    width: 100%;
+    font-weight: 500;
+    
+  }
+  
+  .dash-right .avisos .div-form input {
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+  }
+  
+  .dash-right .avisos .div-form textarea {
+    width: 100%;
+    /* color: #E6005A; */
+    border: 1px solid #000000;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .dash-right .avisos .div-form button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #542183;
+    width: 120px;
+    margin-left: 41%;
+  }
+  
+  .publicacao-btn-editar {
+    cursor: pointer;
+    font-family: "Exo 2", sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 8px;
+    color: white;
+    background-color: #9f39ff;
+    width: 80px;
+  }
+  
+  .publicacao {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border: 1.5px solid #e4e4e4;
+    padding: 20px;
+  }
+  
+  .publicacao > *:not(:last-child) {
+    padding: 0 0 10px 0;
+  }
+  
+  .div-results {
+    width: 100%;
+  }
+  
+  .div-results .feed-container {
+    background-color: #31164400;
+    border-radius: 5px;
+    margin-bottom: 80px;
+    width: 80%;
+    margin-left: 10%;
+    
+  }
+  
+  .div-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .div-buttons > * {
+    margin-left: 30px;
+  }
+
+  .tela_avisos{
+    width: 100%;
+    height: 100vh;
+  }
+
+  .container_avisos .publicacao{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    background-color: #252525;
   }
