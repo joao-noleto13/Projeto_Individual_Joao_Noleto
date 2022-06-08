@@ -12,7 +12,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <div class=" logo"> <img src="./imgs/My project.png" >
+            <div class=" logo"> <img onclick="voltar()" src="./imgs/My project.png" >
             </div>
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
@@ -96,6 +96,11 @@
 </html>
 
 <script>
+
+function voltar(){
+  window.location ="inicio.html"
+}
+
 function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('rua').value=("");

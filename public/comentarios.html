@@ -11,7 +11,7 @@
 <body onload="atualizarFeed()">
     <div class="header">
         <div class="container">
-            <div class=" logo"> <img src="./imgs/My project.png" >
+            <div class=" logo"> <img onclick="voltar()" src="./imgs/My project.png" >
             </div>
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
@@ -88,6 +88,9 @@
 
     var lista_cores = ["white", "yellow"]
 
+    function voltar(){
+  window.location ="inicio.html"
+}
 
 function limparFormulario() {
         document.getElementById("form_postagem").reset();

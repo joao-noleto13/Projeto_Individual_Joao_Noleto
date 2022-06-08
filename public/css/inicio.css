@@ -132,6 +132,7 @@ body{
 
   .logo img{
       width: 85%;
+      cursor: pointer;
   }
 
 

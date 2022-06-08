@@ -119,6 +119,7 @@ body{
 
   .logo img{
       width: 85%;
+      cursor: pointer;
   }
 
   .container_dash{

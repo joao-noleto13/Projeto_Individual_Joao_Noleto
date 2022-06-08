@@ -11,7 +11,7 @@
   <body onload="dash(),dash2()">
     <div class="header">
       <div class="container">
-        <div class="logo"><img src="./imgs/My project.png" /></div>
+        <div class="logo"><img onclick="voltar()" src="./imgs/My project.png" /></div>
         <h1 class="titulo">Hoopers</h1>
         <ul class="navbar">
           <!--  <li>
@@ -52,6 +52,11 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+
+function voltar(){
+  window.location ="inicio.html"
+}
+
   nome_usuario.innerHTML = sessionStorage.NOME_USUARIO.toUpperCase();
   nome_usuario.style.color = `#FFF`;
 

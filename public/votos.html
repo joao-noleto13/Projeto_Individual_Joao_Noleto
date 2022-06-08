@@ -11,7 +11,7 @@
   <body>
     <div class="header">
       <div class="container">
-        <div class="logo"><img src="./imgs/My project.png" /></div>
+        <div class="logo"><img onclick="voltar()" src="./imgs/My project.png" /></div>
         <h1 class="titulo">Hoopers</h1>
         <ul class="navbar">
           <!-- <li>
@@ -156,6 +156,10 @@
 </html>
 <script src="./js/inicio.js"></script>
 <script>
+
+function voltar(){
+  window.location ="inicio.html"
+}
 
 function cadastrar_voto(voto){
 var voto_dado = voto

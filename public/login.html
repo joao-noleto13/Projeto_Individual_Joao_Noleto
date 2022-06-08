@@ -11,7 +11,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <div class=" logo"> <img src="./imgs/My project.png" >
+            <div class=" logo"> <img onclick="voltar()" src="./imgs/My project.png" >
             </div>
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
@@ -57,6 +57,10 @@
 
 </script>
 <script>
+
+function voltar(){
+  window.location ="inicio.html"
+}
 function entrar() {
   var emailVar = input_email.value;
   var senhaVar = input_senha.value;
