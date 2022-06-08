@@ -52,11 +52,24 @@ function puxar_voto() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function puxar_qtde_comentarios() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    SELECT  count(u.idUsuario) as 'qtde_comentarios', u.idUsuario, u.nome
+    FROM comentario as c
+        INNER JOIN usuario as u
+            ON c.fk_usuario = u.idUsuario group by u.idUsuario;
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     cadastrar_voto,
-    puxar_voto
+    puxar_voto,
+    puxar_qtde_comentarios
 };

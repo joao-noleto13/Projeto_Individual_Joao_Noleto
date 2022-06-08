@@ -1,3 +1,3 @@
 function conhecer(){
-    window.location.assign("./index.html")
+    window.location.assign("./inicio.html")
 }

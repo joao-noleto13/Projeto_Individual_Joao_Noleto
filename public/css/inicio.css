@@ -458,7 +458,7 @@ body{
     display: flex;
     align-items: flex-end;
     float: left;
-    margin-left: 2%;
+    margin-left: 6%;
   }
   .img_fundo img{
     height: 92%;
@@ -467,7 +467,8 @@ body{
   .sobre_joao{
     width: 80%;
     height: 92%;
-    background-color: #0d2923;
+    background-color: #0d2329;
+    margin-left: -2%;
     display: flex;
     justify-content: center;
     flex-direction: column;

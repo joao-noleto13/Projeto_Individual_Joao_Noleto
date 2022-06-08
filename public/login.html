@@ -16,7 +16,7 @@
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
                 <li >
-                    <a  href="index.html" onclick="agora()">Inicio</a>
+                    <a  href="inicio.html" onclick="agora()">Inicio</a>
                 </li>
                 <li>
                     <a  href="#container_tela_conheca" onclick="agora()">O que somos ?</a>
@@ -41,6 +41,7 @@
             <span id="span_erro_email"></span>
             <label for="input_senha">Senha:</label>
             <input type="password" id="input_senha" placeholder="Digite sua senha">
+            <span id="span_erro_senha"></span>
 
             <button type="button" onclick="entrar()">Entrar</button>
             <a href="cadastro.html">Cadastre-se</a> 
@@ -72,6 +73,14 @@ function entrar() {
 
   //Validação senha
 
+  var regex = /^(?=(?:.*?[A-Z]){1})(?=(?:.*?[0-9]){1})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}_+^&]*$/;
+    if (senhaVar.length < 8 || senhaVar.length == 0){
+        span_erro_senha.innerHTML = '*Insira 8 caracteres, 1 número, letra maiúscula, minúscula e 1 caractere especial'
+    }
+
+    else {
+        span_erro_senha.innerHTML = "✓"
+    }
 
   fetch("/usuarios/autenticar", {
       method: "POST",

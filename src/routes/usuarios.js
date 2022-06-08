@@ -15,6 +15,11 @@ router.get("/puxar_voto", function (req, res) {
     usuarioController.puxar_voto(req, res);
 });
 
+router.get("/puxar_qtde_comentarios", function (req, res) {
+    usuarioController.puxar_qtde_comentarios(req, res);
+});
+
+
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);

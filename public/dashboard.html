@@ -1,177 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Dashboard</title>
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico">
-</head>
-<body onload="dash()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico" />
+  </head>
+  <body onload="dash(),dash2()">
     <div class="header">
-        <div class="container">
-            <div class=" logo"> <img src="./imgs/My project.png" >
-            </div>
-            <h1 class="titulo">Hoopers</h1>
-            <ul class="navbar">
-                <li>
-                    <a  href="index.html" onclick="agora()">Inicio</a>
-                </li>
-                <li>
-                    <a  href="comentarios.html" onclick="agora()">Comentário</a>
-                </li>
-                <li >
-                    <a href="votos.html" onclick="agora()">Votos</a>
-                </li>
-                <li class="agora">
-                    <a href="" onclick="agora()">Dashboard</a>
-                </li>
-            </ul>
-        </div>
+      <div class="container">
+        <div class="logo"><img src="./imgs/My project.png" /></div>
+        <h1 class="titulo">Hoopers</h1>
+        <ul class="navbar">
+          <!--  <li>
+                    <a  href="inicio.html" onclick="agora()">Inicio</a>
+                </li> -->
+          <li>
+            <a href="comentarios.html" onclick="agora()">Comentário</a>
+          </li>
+          <li>
+            <a href="votos.html" onclick="agora()">Votos</a>
+          </li>
+          <li class="agora">
+            <a href="" onclick="agora()">Dashboard</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="container_dash" >
-        <div class="box_texto_inicio">
-        <p>Olá <span id="nome_usuario"></span> veja aqui sua taxa de comentarios em relação aos demais usuarios e também confira o influencer mais votado até agora</p>
-    </div>
-        <div class="box_dash">
-            <div id="grafico1">
-                <canvas id="myChart" ></canvas>
-            </div>
+    <div class="container_dash">
+      <div class="box_texto_inicio">
+        <p>
+          Olá <span id="nome_usuario"></span> veja aqui sua taxa de comentarios
+          em relação aos demais usuarios e também confira o influencer mais
+          votado até agora
+        </p>
+      </div>
+      <div class="box_dash">
+        <div id="grafico1">
+          <canvas id="myChart"></canvas>
         </div>
+        <div class="linha"></div>
+        <div id="grafico2">
+          <canvas id="myChart2"></canvas>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
-<script>
-    nome_usuario.innerHTML = (sessionStorage.NOME_USUARIO).toUpperCase();
-    nome_usuario.style.color = `#FFF`
-    
-        var qtd_votos1 = 0;
-        var qtd_votos2 = 0;
-        var qtd_votos3 = 0;
-
-    
-        var nome_influ1 = "";
-        var nome_influ2= "";
-        var nome_influ3= "";
-
-    function dash(){
-
-
-fetch("/usuarios/puxar_voto").then(function (resposta) {
-    if (resposta.ok) {
-
-        resposta.json().then(function (resposta) {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
-            var teste = resposta
-            qtd_votos1 = resposta[0].voto_recebido;
-            nome_influ1= resposta[0].nome;
-
-            if (resposta[1]) {
-                qtd_votos2  = resposta[1].voto_recebido;
-                nome_influ2 = resposta[1].nome;
-            }
-            if (resposta[2]) {
-                qtd_votos3  = resposta[2].voto_recebido;
-                nome_influ3 = resposta[2].nome;
-            }
-
-          
-
-            graficos1()
-        });
-    } else {
-        throw ('Houve um erro na API!');
-    }
-}).catch(function (resposta) {
-    console.error(resposta);
-});
-
-
-
-}
-</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-function graficos1(){
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO.toUpperCase();
+  nome_usuario.style.color = `#FFF`;
 
- 
+  var qtd_votos1 = 0;
+  var qtd_votos2 = 0;
+  var qtd_votos3 = 0;
 
-     
+  var nome_influ1 = "";
+  var nome_influ2 = "";
+  var nome_influ3 = "";
+
+  function dash() {
+    fetch("/usuarios/puxar_voto")
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            var teste = resposta;
+            qtd_votos1 = resposta[0].voto_recebido;
+            nome_influ1 = resposta[0].nome;
+
+            if (resposta[1]) {
+              qtd_votos2 = resposta[1].voto_recebido;
+              nome_influ2 = resposta[1].nome;
+            }
+            if (resposta[2]) {
+              qtd_votos3 = resposta[2].voto_recebido;
+              nome_influ3 = resposta[2].nome;
+            }
+
+            graficos1();
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+  }
+
+  function graficos1() {
     const data = {
-      labels: [
-  
+      labels: [],
+      datasets: [
+        {
+          label: "Quantidade de votos ",
+          data: [],
+          backgroundColor: [
+            "rgb(153, 0, 255, 0.747)",
+            "rgb(0, 110, 255, 0.747)",
+            "rgb(255, 136, 0, 0.747)",
+          ],
+          borderColor: ["#000"],
+          borderWidth: 1.5, 
+          hoverOffset: 2,
+        },
       ],
-      datasets: [{
-        label: 'My First Dataset',
-        data: [],
-        backgroundColor: [
-          'rgb(153, 0, 255)',
-          'rgb(0, 110, 255)',
-          'rgb(255, 136, 0)',
-          
-        ],
-        borderColor: 'rgb(26, 25, 25)',
-        hoverOffset: 4,
-        borderWidth:0,
-        borderJoinStyle: 'miter',
-        borderAlign: 'inner',
-        borderRadius: 'outerEnd'
-      },]
     };
-  
-    Chart.defaults.color = "#FFF"
-   
-    data.labels.push(nome_influ1)
-      data.datasets[0].data.push(qtd_votos1)
- 
+
+    Chart.defaults.color = "#FFF";
+
+    data.labels.push(nome_influ1);
+    data.datasets[0].data.push(qtd_votos1);
+
     if (qtd_votos2 > 0) {
-      data.labels.push(nome_influ2)
-      data.datasets[0].data.push(qtd_votos2)
+      data.labels.push(nome_influ2);
+      data.datasets[0].data.push(qtd_votos2);
     }
     if (qtd_votos3 > 0) {
-      data.labels.push(nome_influ3)
-      data.datasets[0].data.push(qtd_votos3)
+      data.labels.push(nome_influ3);
+      data.datasets[0].data.push(qtd_votos3);
     }
-    
+
     const config = {
-      type: 'pie',
+      type: "bar",
       data: data,
       options: {
+        indexAxis: "y",
         plugins: {
-            title: {
-                display: true,
-                text: 'Veja os influencers mais votados',
-                padding: {
-                    top: 20,
-                    bottom: 20
-                }
-            }
-            
-        }
-      }
-
-
+          title: {
+            display: true,
+            text: "Confira os votos dados pelos usuarios nos influenciadores",
+            padding: {
+              top: 20,
+              bottom: 20,
+            },
+          },
+        },
+      },
     };
-    
-    
-    
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
 
+    const myChart = new Chart(document.getElementById("myChart"), config);
+  }
 
-    
-    
-}
+  /* ---------------------------------------------------------------------------------------------------------------- */
 
+  lista_qtde_coment = [];
+  lista_nome_usuario = [];
+  var total = 0;
+  function dash2() {
+    fetch("/usuarios/puxar_qtde_comentarios")
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-  
+            for (var c = 0; c < resposta.length; c++) {
+              total = total + Number(resposta[c].qtde_comentarios);
+            }
 
-  
-  
-     
+            for (var c = 0; c < resposta.length; c++) {
+              lista_qtde_coment.push(resposta[c].qtde_comentarios / total * 100);
+              lista_nome_usuario.push(resposta[c].nome);
+            }
+
+            graficos2();
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+  }
+
+  function graficos2() {
+    const data2 = {
+      labels: [],
+      datasets: [
+        {
+          label: "votos",
+          data: [],
+          backgroundColor: [
+            "rgba(197, 35, 170, 0.808)",
+            "rgba(132, 35, 197, 0.808)",
+            "rgba(46, 35, 197, 0.808)",
+            "rgba(35, 146, 197, 0.808)",
+            "rgba(35, 197, 176, 0.808)",
+            "rgba(35, 197, 62, 0.808)",
+            "rgba(127, 197, 35, 0.808)",
+            "rgba(127, 197, 35, 0.808)",
+          ],
+        
+          borderColor: "rgb(26, 25, 25)",
+          hoverOffset: 2,
+          borderWidth: 1.2,
+          borderJoinStyle: "miter",
+          borderAlign: "inner",
+          borderRadius: "outerEnd",
+        },
+      ],
+    };
+    Chart.defaults.color = "#FFF";
+
+    for (var c = 0; c < lista_qtde_coment.length; c++) {
+      data2.labels.push(lista_nome_usuario[c]);
+      data2.datasets[0].data.push(lista_qtde_coment[c]);
+    }
+
+    const config2 = {
+      type: "pie",
+      data: data2,
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: "Seus comentários em porcentagem",
+            padding: {
+              top: 20,
+              bottom: 20,
+            },
+          },
+        },
+      },
+    };
+
+    const myChart = new Chart(document.getElementById("myChart2"), config2);
+  }
 </script>
-

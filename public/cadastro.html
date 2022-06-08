@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="shortcut icon" href="./imgs/bola_de_basquete_CPX_icon.ico">
 </head>
+
 <body>
     <div class="header">
         <div class="container">
@@ -16,7 +17,7 @@
             <h1 class="titulo">Hoopers</h1>
             <ul class="navbar">
                 <li >
-                    <a  href="index.html" onclick="agora()">Inicio</a>
+                    <a  href="inicio.html" onclick="agora()">Inicio</a>
                 </li>
                 <li>
                     <a  href="#container_tela_conheca" onclick="agora()">O que somos ?</a>
@@ -37,7 +38,7 @@
     <section class="sec_cadastro">
         <div class="div_form">
             
-            <form class="form">
+            <form method="get" class="form">
                 <div class="div_titulo">
                 <span id="titulo">Cadastre-se</span>
             </div>
@@ -45,40 +46,35 @@
             <div class="pt_1">
                 
                     <label  for="input_nome">Nome Usuário:</label>
-                    <input type="text" id="input_nome" placeholder="Digite seu nome">
+                    <input onchange = "verificarContato()" type="text" id="input_nome" placeholder="Digite seu nome">
                
                 
-                    <label for="input_email">Email:</label>
-                    <input type="text" id="input_email" placeholder="Digite seu email">
+                    <label  for="input_email">Email:</label>
+                    <input onchange="verificarEmail()" type="text" id="input_email" placeholder="Digite seu email">
                
                 
                     <label for="input_senha">Senha:</label>
-                    <input type="password" id="input_senha" placeholder="Digite sua senha">
+                    <input onchange="verificarSenha()" type="password" id="input_senha" placeholder="Digite sua senha">
                    
                 
                     <label for="input_celular">Celular:</label>
-                    <input type="number" id="input_celular" placeholder="Digite seu celular">
+                    <input onchange="verificarTel()" type="number" id="input_celular" placeholder="Digite seu celular">
                
                 </div>
 
                 <div class="divisao"></div>
 
             <div class="pt_2">
-            
-                <label for="input_cep">Cep:</label>
-                <input type="number" min="0" id="input_cep" placeholder="Digite seu cep">
-           
-            
-                <label for="input_bairro">Bairro:</label>
-                <input type="text" id="input_bairro" placeholder="Digite sua bairro">
-           
-            
-                <label for="input_cidade">Cidade:</label>
-                <input type="text" id="input_cidade" placeholder="Digite sua cidade">
-           
-            
-                <label for="input_rua">Rua:</label>
-                <input type="text" id="input_rua" placeholder="Digite sua rua">
+           <label for="cep">Cep:</label>
+                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+               onblur="pesquisacep(this.value);" />
+        <label for="rua">Rua:</label>
+        <input name="rua" type="text" id="rua" size="60" />
+        <label for="bairro">Bairro:</label>
+        <input name="bairro" type="text" id="bairro" size="40" />
+        <label for="cidade">Cidade:</label>
+        <input name="cidade" type="text" id="cidade" size="40" />
+      
             
             </div>
 
@@ -100,21 +96,131 @@
 </html>
 
 <script>
+function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+           
+    }
 
-   
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+    
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
 
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
 
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+              
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    function verificarContato() {
+        contato = String(input_nome.value).trim();
+        if (contato.length < 3) {
+            document.getElementById("input_nome").style.border = 'red 2px outset';
+            return false
+        } else {
+            document.getElementById("input_nome").style.border = 'green 2px outset';
+        }
+    }
+
+    function verificarSenha() {
+        senhaVar = input_senha.value.trim();
+
+        var regex = /^(?=(?:.*?[A-Z]){1})(?=(?:.*?[0-9]){1})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}_+^&]*$/;
+
+        if (senhaVar.length < 8 || senhaVar.length == 0  ) {
+            alert('*Insira 8 caracteres, 1 número, letra maiúscula, minúscula e 1 caractere especial')
+        }
+        else if (!regex.exec(senhaVar)) {
+            alert('*Insira 8 caracteres, 1 número, letra maiúscula, minúscula e 1 caractere especial')
+            document.getElementById("input_senha").style.border = 'red 2px outset';
+            return false
+        }
+        else {
+            document.getElementById("input_senha").style.border = 'green 2px outset';
+        }
+    }
+
+    function verificarEmail() {
+        email1 = String(input_email.value).trim();
+        if (email1.indexOf("@") > 3 && (email1.endsWith(".com.br") || email1.endsWith(".com") ||
+            email1.endsWith(".ind.br") || email1.endsWith(".ind"))) {
+                document.getElementById("input_email").style.border = 'green 2px outset';
+        } else {
+            alert('*Insira "@" e terminação .com, por exemplo')
+            document.getElementById("input_email").style.border = 'red 2px outset';
+            return false
+        }
+    }
+
+    function verificarTel() {
+        tel1 = String(input_celular.value).trim();
+        if (tel1.length < 10) {
+           alert('*Digite o DD e o número')
+            document.getElementById("input_celular").style.border = 'red 2px outset';
+            return false
+        } else {
+            document.getElementById("input_celular").style.border = 'green 2px outset';
+        }
+    }
 
     function cadastrar(){
 
-        var nomeVar = input_nome.value;
+    var nomeVar = input_nome.value;
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
     var celularVar = input_celular.value;
-    var cepVar = input_cep.value;
-    var bairroVar = input_bairro.value;
-    var cidadeVar = input_cidade.value;
-    var ruaVar = input_rua.value;
+    var cepVar = cep.value;
+    var bairroVar = bairro.value;
+    var cidadeVar = cidade.value;
+    var ruaVar = rua.value;
     
 fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -156,4 +262,6 @@ fetch("/usuarios/cadastrar", {
 
         return false;
     }
+
+    
 </script>

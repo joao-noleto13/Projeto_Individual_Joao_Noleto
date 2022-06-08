@@ -27,8 +27,9 @@ rua varchar (45),
 fkVoto int,
 foreign key (fkVoto) references voto(idVoto)
 );
+select * from usuario;
 
-CREATE TABLE aviso (
+CREATE TABLE comentario (
 id INT PRIMARY KEY AUTO_INCREMENT,
 titulo VARCHAR(100),
 descricao VARCHAR(450),
@@ -36,23 +37,23 @@ fk_usuario INT,
 FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
 
-select a.id as idUsuario from aviso as a;
 
+select * from comentario;
 
-SELECT 
-            a.id as idAviso,
-            a.titulo,
-            a.descricao,
-            a.fk_usuario,
-            u.idUsuario as idUsuario,
-            u.nome,
-            u.email,
-            u.senha
-        FROM aviso as a
+select * from usuario;
+
+SELECT a.id as idAviso, a.titulo, a.descricao, a.fk_usuario, u.idUsuario as idUsuario, u.nome, u.email, u.senha
+        FROM comentario as a
             INNER JOIN usuario as u
                 ON a.fk_usuario = u.idUsuario;
-
-select * from aviso;
+                
+SELECT  count(u.idUsuario) as 'qtde_comentarios', u.idUsuario, u.nome
+        FROM comentario as c
+            INNER JOIN usuario as u
+                ON c.fk_usuario = u.idUsuario group by u.idUsuario;
+    
+    
+select * from comentario;
 
 select * from usuario;
 
@@ -78,3 +79,9 @@ insert into usuario (nome,fkVoto) values
 ('teste', 1),
 ('teste', 1),
 ('teste', 3);
+
+insert into comentario (titulo, descricao , fk_usuario) values 
+('teste1', 'só para a dash funcionar', 5),
+('teste1', 'só para a dash funcionar', 6),
+('teste1', 'só para a dash funcionar', 7),
+('teste1', 'só para a dash funcionar', 8);

@@ -47,13 +47,12 @@ function ninja() {
 }
 
 
-function trocar_video(){
+function trocar_video(video){
 
-    if(document.getElementById("video").style.display = "none" == true){
+    document.getElementById('video').src = video
 
-    document.getElementById("video2").style.display = "block"
-}
-else{
-    document.getElementById("video").style.display = "none"
-}
+    if(document.getElementById('video').src  == video){
+
+        document.getElementById('video').src = "./imgs/cesta step.mp4"
+    }
 }

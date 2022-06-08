@@ -109,7 +109,7 @@ body{
   }
   
   
-  .titulo {
+  #titulo {
     color: #252525;
     width: fit-content;
     font-weight: 500;
@@ -159,19 +159,33 @@ body{
     justify-content: space-around;
     flex-direction: column;
     width: 55%;
-    height: 70%;
+    height: 75%;
     border-radius: 2%;
-    margin-top: 12%;
+    margin-top: 15%;
     margin-left: -5%;
     padding: 5px, 5px, 5px, 5px;
     box-shadow: rgba(121, 82, 179, 0.726) 0px 5px 15px 0px;
   }
 
+  .form span{
+    height: 30px;
+    padding: 2px;
+    width: 95%;
+    color: #ddd;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-top: -2%;
+  }
+
+ #titulo{
+   margin-bottom: 18%;
+ }
 
   .form a{
     text-decoration: none;
     color: rgb(254, 255, 255);
-    margin-top: -11%;
+    
     transition: 1S;
     font-size: 12px;
   }
@@ -186,6 +200,8 @@ body{
     color: #E1E8EB;
     align-self: flex-start;
     margin-left: 12%;
+    margin-top: -10%;
+    margin-bottom: 7%;
   }
   
   input{
